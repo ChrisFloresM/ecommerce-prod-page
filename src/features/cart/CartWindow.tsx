@@ -12,10 +12,10 @@ let itemsList: ICartItem[] = [
 ];
 
 function CartWindow() {
-  itemsList = [];
+  /*  itemsList = [];*/
   return (
     <section
-      className="shadow-primary max-w-[22.5rem] rounded-[10px] py-300"
+      className="shadow-primary animate-fade-in-scale absolute top-full right-1/2 w-[22.5rem] translate-x-1/2 rounded-[10px] bg-white py-300 sm:top-[2rem] sm:translate-x-[calc(25%+2vw)]"
       aria-label="Products cart window"
     >
       <h3 className="text-preset-3 leading-preset-3 border-b-grey-100 border-b-1 px-[0.75rem] pb-300 font-bold">

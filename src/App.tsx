@@ -1,7 +1,7 @@
-import CartWindow from "./features/cart/CartWindow.tsx";
+import Header from "./layout/header/Header.tsx";
 
 function App() {
-  return <CartWindow />;
+  return <Header />;
 }
 
 export default App;
