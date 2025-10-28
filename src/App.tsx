@@ -1,5 +1,7 @@
+import Header from "./layout/header/Header.tsx";
+
 function App() {
-  return <h1>text</h1>;
+  return <Header />;
 }
 
 export default App;
