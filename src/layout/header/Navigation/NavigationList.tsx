@@ -10,7 +10,7 @@ const navigationList: string[] = [
 
 function NavigationList() {
   return (
-    <ul className="flex flex-col gap-300 md:flex-row md:gap-400">
+    <ul className="flex flex-col gap-300 lg:flex-row lg:gap-400">
       {navigationList.map((name: string) => (
         <NavigationItem linkName={name} key={name} />
       ))}

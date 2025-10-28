@@ -4,12 +4,12 @@ import NavigationList from "./NavigationList.tsx";
 import NavMenuControlButton from "./NavMenuControlButton.tsx";
 
 const navBaseClassName =
-  "fixed top-0 left-0 order-1 h-dvh space-y-700 px-1000 py-600 bg-orange-500 md:relative" +
-  " md:order-2 md:h-auto md:space-y-0 md:bg-transparent md:p-0 transition-transform duration-300" +
-  " ease-in-out md:translate-x-0";
+  "fixed top-0 left-0 order-1 h-dvh space-y-700 px-1000 py-600 bg-orange-500 lg:relative" +
+  " lg:order-2 lg:h-auto lg:space-y-0 lg:bg-transparent lg:p-0 transition-transform duration-300" +
+  " ease-in-out lg:translate-x-0";
 
 function Navigation() {
-  const isMobile = useMobileCheck(768);
+  const isMobile = useMobileCheck(1024);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   function handleOpenMenu() {

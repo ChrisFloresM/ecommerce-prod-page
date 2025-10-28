@@ -49,4 +49,6 @@
     --spacing-1200: 6rem;
     --spacing-1300: 6.5rem;
     --spacing-1600: 8rem;
+
+    --shadow-primary: 0 20px 50px -20px rgba(29, 32, 38, 0.1);
 }

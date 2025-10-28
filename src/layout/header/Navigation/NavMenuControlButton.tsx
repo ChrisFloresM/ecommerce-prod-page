@@ -15,7 +15,7 @@ function NavMenuControlButton({
       aria-label={`${type} the navigation menu`}
       aria-expanded={expanded}
       aria-controls="navigation-menu"
-      className="md:hidden"
+      className="lg:hidden"
       onClick={clickHandler}
     >
       <img
