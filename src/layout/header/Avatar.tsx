@@ -4,7 +4,7 @@ function Avatar() {
       <img
         src="/img/image-avatar.png"
         alt="A picture of the user's avatar"
-        className="max-w-[50px]"
+        className="max-w-[24px] sm:max-w-[50px]"
       />
     </div>
   );

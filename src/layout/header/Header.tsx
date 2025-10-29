@@ -9,7 +9,7 @@ function Header() {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
-    <header className="lg:border-grey-100 relative flex justify-between border-b-0 px-300 pb-0 sm:px-0 lg:border-b-1 lg:pb-400">
+    <header className="md:border-grey-100 relative flex justify-between border-b-0 px-300 pb-0 sm:px-0 md:border-b-1 md:pb-400">
       <div className="flex items-center gap-200 lg:gap-700">
         <Logo />
         <Navigation />
