@@ -1,6 +1,12 @@
 import CarousselButton from "../../ui/CarousselButton.tsx";
 
-function ProductImage() {
+interface IProductImageProps {
+  images: string[];
+  thumbnail: string[];
+}
+
+function ProductImage({ images, thumbnail }: IProductImageProps) {
+  const imgSrc = images[0];
   function handleNext() {
     console.log("next");
   }
@@ -16,11 +22,7 @@ function ProductImage() {
     >
       <CarousselButton direction="next" onClick={handleNext} />
       <CarousselButton direction="previous" onClick={handlePrevious} />
-      <img
-        src="/img/image-product-1.jpg"
-        alt="A picture of the product"
-        className="w-full"
-      />
+      <img src={imgSrc} alt="A picture of the product" className="w-full" />
     </section>
   );
 }
