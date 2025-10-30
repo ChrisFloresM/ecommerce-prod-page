@@ -1,3 +1,5 @@
+import { useCart } from "../../context/CartContext.tsx";
+
 export interface ICartItem {
   img: string;
   name: string;
@@ -6,7 +8,12 @@ export interface ICartItem {
 }
 function ProductItem({ product }: { product: ICartItem }) {
   const { img, name, unitPrice, amount } = product;
+  const { removeCartItem } = useCart();
   const total = unitPrice * amount;
+
+  function handleDelete() {
+    removeCartItem(name);
+  }
 
   return (
     <li className="flex items-center gap-200">
@@ -22,12 +29,12 @@ function ProductItem({ product }: { product: ICartItem }) {
         </span>
         <span className="text-grey-950 font-bold">${total.toFixed(2)}</span>
       </div>
-      <div>
+      <button className="hover:cursor-pointer" onClick={handleDelete}>
         <img
           src="/icons/icon-delete.svg"
           alt="An icon with a trash can to delete element"
         />
-      </div>
+      </button>
     </li>
   );
 }

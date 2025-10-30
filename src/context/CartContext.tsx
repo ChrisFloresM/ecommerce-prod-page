@@ -9,7 +9,7 @@ import type { ICartItem } from "../features/cart/ProductItem.tsx";
 interface ICartContext {
   cartItems: ICartItem[] | null;
   addCartItem: (item: ICartItem) => void;
-  removeCartItem: (item: ICartItem) => void;
+  removeCartItem: (name: string) => void;
   getTotalProducts: () => number;
 }
 
@@ -36,8 +36,11 @@ export default function CartContextProvider({ children }: PropsWithChildren) {
     });
   }
 
-  function removeCartItem(item: ICartItem): void {
-    console.log(item);
+  function removeCartItem(name: string): void {
+    console.log("removing " + name);
+    setCartItems((items) => {
+      return items ? items.filter((item: ICartItem) => item.name !== name) : [];
+    });
   }
 
   function getTotalProducts(): number {
