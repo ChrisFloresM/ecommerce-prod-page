@@ -46,7 +46,7 @@ function ProductOverview({ product }: { product: IProductType }) {
   }
 
   return (
-    <section className="flex flex-col gap-400 px-300 md:gap-300 md:px-0">
+    <section className="flex flex-col gap-400 px-300 md:gap-300 md:px-0 lg:gap-400">
       <ProductInfo
         company={company}
         name={productName}

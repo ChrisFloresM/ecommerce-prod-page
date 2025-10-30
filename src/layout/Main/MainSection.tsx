@@ -1,5 +1,7 @@
 import ProductImage from "../productImages/ProductImage.tsx";
 import ProductOverview from "../productOverview/ProductOverview.tsx";
+import { useState } from "react";
+import ModalWindow from "./ModalWindow.tsx";
 
 export interface IProductType {
   images: string[];
@@ -33,15 +35,32 @@ const currentProduct: IProductType = {
 };
 
 function MainSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handleOpenModal(): void {
+    setIsModalOpen(true);
+  }
+
+  function handleCloseModal(): void {
+    setIsModalOpen(false);
+  }
+
   return (
-    <main className="flex flex-col gap-300 md:gap-600 lg:flex-row">
+    <main className="lg: flex flex-col items-center gap-300 md:gap-600 lg:flex-row lg:px-400">
+      {isModalOpen && (
+        <ModalWindow
+          closeModal={handleCloseModal}
+          images={currentProduct.images}
+          thumbnail={currentProduct.thumbnail}
+        />
+      )}
       <ProductImage
         images={currentProduct.images}
         thumbnail={currentProduct.thumbnail}
+        openModal={handleOpenModal}
       />
       <ProductOverview product={currentProduct} />
     </main>
   );
 }
-
 export default MainSection;
