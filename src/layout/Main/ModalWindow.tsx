@@ -1,4 +1,6 @@
 import ProductImage from "../productImages/ProductImage.tsx";
+import { useEffect, useRef } from "react";
+import useFocusTrap from "../../hooks/useFocusTrap.tsx";
 
 interface IModalWindowProps {
   closeModal: () => void;
@@ -7,14 +9,25 @@ interface IModalWindowProps {
 }
 
 function ModalWindow({ closeModal, images, thumbnail }: IModalWindowProps) {
+  const modalRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  useFocusTrap(true, modalRef, closeModal);
+
+  useEffect(() => {
+    if (buttonRef.current) {
+      buttonRef.current.focus();
+    }
+  }, []);
+
   return (
     <section className="absolute inset-0 z-100 hidden max-h-dvh w-full items-center justify-center bg-black/50 lg:flex">
-      <div className="relative w-[550px] pt-500">
+      <div className="relative w-[550px] pt-500" ref={modalRef}>
         <button
           type="button"
           aria-label="A button to close the modal window"
           onClick={closeModal}
           className="absolute top-0 right-0 z-10 hover:cursor-pointer"
+          ref={buttonRef}
         >
           <img
             src="/icons/icon-close.svg"

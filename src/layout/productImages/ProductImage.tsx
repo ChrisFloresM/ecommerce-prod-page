@@ -1,6 +1,7 @@
 import CarousselButton from "../../ui/CarousselButton.tsx";
 import { useState } from "react";
 import ThumbnailImage from "./ThumbnailImage.tsx";
+import { handleKeyDown } from "../../utils/utils.ts";
 
 interface IProductImageProps {
   images: string[];
@@ -50,6 +51,10 @@ function ProductImage({
           src={imgSrc}
           alt="A picture of the product"
           onClick={openModal}
+          onKeyDown={handleKeyDown}
+          tabIndex={isModal ? -1 : 0}
+          role="button"
+          aria-label="A picture of the product (clic to open Modal on desktop devices)"
           className={`${currentImg === 0 ? "object-center" : "object-top"} ${isModal ? "" : "cursor-pointer"} h-[300px] w-full object-cover sm:rounded-[10px] lg:h-full`}
         />
       </div>

@@ -1,7 +1,8 @@
 import { useMobileCheck } from "../hooks/useMobileCheck.ts";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NavigationList from "./NavigationList.tsx";
 import NavMenuControlButton from "./NavMenuControlButton.tsx";
+import useFocusTrap from "../../../hooks/useFocusTrap.tsx";
 
 const navBaseClassName =
   "fixed top-0 left-0 order-1 h-dvh space-y-700 px-1000 py-600 bg-orange-500 lg:relative z-50" +
@@ -11,6 +12,7 @@ const navBaseClassName =
 function Navigation() {
   const isMobile = useMobileCheck(1024);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const navRef = useRef<HTMLElement>(null);
 
   function handleOpenMenu() {
     setIsMobileMenuOpen(true);
@@ -19,6 +21,8 @@ function Navigation() {
   function handleCloseMenu() {
     setIsMobileMenuOpen(false);
   }
+
+  useFocusTrap(isMobile && isMobileMenuOpen, navRef, handleCloseMenu);
 
   return (
     <>
@@ -39,6 +43,7 @@ function Navigation() {
         aria-hidden={isMobile && !isMobileMenuOpen}
         inert={isMobile && !isMobileMenuOpen}
         id="navigation-menu"
+        ref={navRef}
       >
         <NavMenuControlButton
           type="close"
