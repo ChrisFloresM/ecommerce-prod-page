@@ -1,6 +1,7 @@
-import ProductImage from "../productImages/ProductImage.tsx";
+import Carousel from "../../features/carousel/Carousel.tsx";
 import { useEffect, useRef } from "react";
 import useFocusTrap from "../../hooks/useFocusTrap.tsx";
+import { IoCloseSharp } from "react-icons/io5";
 
 interface IModalWindowProps {
   closeModal: () => void;
@@ -24,18 +25,14 @@ function ModalWindow({ closeModal, images, thumbnail }: IModalWindowProps) {
       <div className="relative w-[550px] pt-500" ref={modalRef}>
         <button
           type="button"
-          aria-label="A button to close the modal window"
+          aria-label="Close modal window"
           onClick={closeModal}
           className="absolute top-0 right-0 z-10 hover:cursor-pointer"
           ref={buttonRef}
         >
-          <img
-            src="/icons/icon-close.svg"
-            alt="An icon of a cross to close"
-            className="w-[20px]"
-          />
+          <IoCloseSharp className="text-[2rem] text-orange-500 hover:text-orange-300" />
         </button>
-        <ProductImage images={images} thumbnail={thumbnail} isModal={true} />
+        <Carousel images={images} thumbnail={thumbnail} isModal={true} />
       </div>
     </section>
   );

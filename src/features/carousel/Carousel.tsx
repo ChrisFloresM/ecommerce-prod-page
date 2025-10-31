@@ -1,4 +1,4 @@
-import CarousselButton from "../../ui/CarousselButton.tsx";
+import CarouselButton from "../../ui/CarouselButton.tsx";
 import { useState } from "react";
 import ThumbnailImage from "./ThumbnailImage.tsx";
 import { handleKeyDown } from "../../utils/utils.ts";
@@ -10,7 +10,7 @@ interface IProductImageProps {
   isModal?: boolean;
 }
 
-function ProductImage({
+function Carousel({
   images,
   thumbnail,
   openModal,
@@ -37,12 +37,12 @@ function ProductImage({
       className={`${isModal ? "gap-500" : "gap-400"} flex w-full flex-col`}
     >
       <div className="relative">
-        <CarousselButton
+        <CarouselButton
           direction="next"
           onClick={handleNext}
           isModal={isModal}
         />
-        <CarousselButton
+        <CarouselButton
           direction="previous"
           onClick={handlePrevious}
           isModal={isModal}
@@ -72,4 +72,4 @@ function ProductImage({
     </section>
   );
 }
-export default ProductImage;
+export default Carousel;

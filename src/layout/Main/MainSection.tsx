@@ -1,4 +1,4 @@
-import ProductImage from "../productImages/ProductImage.tsx";
+import Carousel from "../../features/carousel/Carousel.tsx";
 import ProductOverview from "../productOverview/ProductOverview.tsx";
 import { useState } from "react";
 import ModalWindow from "./ModalWindow.tsx";
@@ -10,7 +10,7 @@ export interface IProductType {
   productName: string;
   productDescription: string;
   price: number;
-  disccount: number;
+  discount: number;
 }
 
 const currentProduct: IProductType = {
@@ -31,7 +31,7 @@ const currentProduct: IProductType = {
   productDescription:
     "The low-profile sneakers are perfect casual wear companion. Featuring a durable rubber outer sole , they'l l withstand everything the weather can offer.",
   price: 250,
-  disccount: 50,
+  discount: 50,
 };
 
 function MainSection() {
@@ -46,7 +46,7 @@ function MainSection() {
   }
 
   return (
-    <main className="lg: flex flex-col items-center gap-300 md:gap-600 lg:flex-row lg:px-400">
+    <main className="flex flex-col items-center gap-300 md:gap-600 lg:flex-row lg:gap-1600 lg:px-400">
       {isModalOpen && (
         <ModalWindow
           closeModal={handleCloseModal}
@@ -54,7 +54,7 @@ function MainSection() {
           thumbnail={currentProduct.thumbnail}
         />
       )}
-      <ProductImage
+      <Carousel
         images={currentProduct.images}
         thumbnail={currentProduct.thumbnail}
         openModal={handleOpenModal}

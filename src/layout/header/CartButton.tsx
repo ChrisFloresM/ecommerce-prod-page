@@ -1,4 +1,5 @@
 import { useCart } from "../../context/CartContext.tsx";
+import { BsCart3 } from "react-icons/bs";
 
 function CartButton({ onClick }: { onClick: () => void }) {
   const { getTotalProducts } = useCart();
@@ -8,7 +9,7 @@ function CartButton({ onClick }: { onClick: () => void }) {
     <button
       type="button"
       aria-label="Open cart"
-      className="relative hover:cursor-pointer"
+      className="relative text-xl hover:cursor-pointer"
       onClick={onClick}
     >
       {cartLength > 0 && (
@@ -16,7 +17,7 @@ function CartButton({ onClick }: { onClick: () => void }) {
           {cartLength}
         </span>
       )}
-      <img src="/icons/icon-cart.svg" alt="An icon of a cart" />
+      <BsCart3 className="text-grey-500 transition-colors duration-100 hover:text-orange-500" />
     </button>
   );
 }

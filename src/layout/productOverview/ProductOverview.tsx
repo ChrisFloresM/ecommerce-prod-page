@@ -6,11 +6,12 @@ import type { IProductType } from "../Main/MainSection.tsx";
 import { useState } from "react";
 import type { ICartItem } from "../../features/cart/ProductItem.tsx";
 import { useCart } from "../../context/CartContext.tsx";
+import { FaCartShopping } from "react-icons/fa6";
 
 function ProductOverview({ product }: { product: IProductType }) {
-  const { images, company, productName, productDescription, price, disccount } =
+  const { images, company, productName, productDescription, price, discount } =
     product;
-  const finalPrice = disccount > 0 ? (price * disccount) / 100 : price;
+  const finalPrice = discount > 0 ? (price * discount) / 100 : price;
   const [amount, setAmount] = useState<number>(0);
   const [error, setError] = useState<string>("");
 
@@ -54,7 +55,7 @@ function ProductOverview({ product }: { product: IProductType }) {
       />
       <ProductPrices
         price={price}
-        disccount={disccount}
+        disccount={discount}
         finalPrice={finalPrice}
       />
       <div className="flex flex-col gap-200 md:flex-row md:gap-100">
@@ -65,7 +66,9 @@ function ProductOverview({ product }: { product: IProductType }) {
           manual={handleManualChange}
         />
         <div className="md:flex-1 lg:flex-2">
-          <Button text="Add to cart" onClick={handleAddCart} />
+          <Button text="Add to cart" onClick={handleAddCart}>
+            <FaCartShopping />
+          </Button>
         </div>
       </div>
       {error && (

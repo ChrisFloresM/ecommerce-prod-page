@@ -1,3 +1,5 @@
+import { MdArrowForwardIos, MdOutlineArrowBackIos } from "react-icons/md";
+
 interface ICarousselButtonProps {
   direction: "next" | "previous";
   onClick: () => void;
@@ -6,8 +8,8 @@ interface ICarousselButtonProps {
 
 const baseClass =
   "absolute top-1/2 flex -translate-y-1/2 items-center justify-center" +
-  " rounded-full bg-white hover:cursor-pointer";
-function CarousselButton({
+  " rounded-full bg-white hover:cursor-pointer text-xl";
+function CarouselButton({
   direction,
   onClick,
   isModal = false,
@@ -23,18 +25,17 @@ function CarousselButton({
   return (
     <button
       className={`${buttonDirectionClass} ${baseClass} ${isModal ? "" : "lg:hidden"} ${isModal ? "h-[56px] w-[56px]" : "h-[40px] w-[40px]"}`}
+      type="button"
+      aria-label={`Go to ${direction} image`}
       onClick={onClick}
     >
-      <img
-        src={
-          direction == "next"
-            ? "/icons/icon-next.svg"
-            : "/icons/icon-previous.svg"
-        }
-        alt={`An icon of a ${direction == "next" ? "right" : "left"} arrow`}
-      />
+      {direction === "next" ? (
+        <MdArrowForwardIos className="text-grey-500 hover:text-orange-500" />
+      ) : (
+        <MdOutlineArrowBackIos className="text-grey-500 hover:text-orange-500" />
+      )}
     </button>
   );
 }
 
-export default CarousselButton;
+export default CarouselButton;

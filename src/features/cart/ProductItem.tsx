@@ -1,4 +1,5 @@
 import { useCart } from "../../context/CartContext.tsx";
+import { FaTrashCan } from "react-icons/fa6";
 
 export interface ICartItem {
   img: string;
@@ -29,11 +30,13 @@ function ProductItem({ product }: { product: ICartItem }) {
         </span>
         <span className="text-grey-950 font-bold">${total.toFixed(2)}</span>
       </div>
-      <button className="hover:cursor-pointer" onClick={handleDelete}>
-        <img
-          src="/icons/icon-delete.svg"
-          alt="An icon with a trash can to delete element"
-        />
+      <button
+        className="hover:cursor-pointer"
+        onClick={handleDelete}
+        aria-label="Delete item"
+        type="button"
+      >
+        <FaTrashCan className="text-grey-500 transition-colors duration-100 hover:text-orange-500" />
       </button>
     </li>
   );

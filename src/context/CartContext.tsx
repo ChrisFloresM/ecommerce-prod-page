@@ -37,7 +37,6 @@ export default function CartContextProvider({ children }: PropsWithChildren) {
   }
 
   function removeCartItem(name: string): void {
-    console.log("removing " + name);
     setCartItems((items) => {
       return items ? items.filter((item: ICartItem) => item.name !== name) : [];
     });
