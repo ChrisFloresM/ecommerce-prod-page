@@ -3,7 +3,7 @@ import NavigationItem from "./NavigationItem.tsx";
 const navigationList: string[] = [
   "Collections",
   "Men",
-  "Wommen",
+  "Women",
   "About",
   "Contact",
 ];

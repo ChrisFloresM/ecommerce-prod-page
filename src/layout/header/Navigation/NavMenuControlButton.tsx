@@ -1,3 +1,6 @@
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdOutlineClose } from "react-icons/md";
+
 interface INavMenuControlButtonProps {
   type: "open" | "close";
   clickHandler: () => void;
@@ -18,10 +21,11 @@ function NavMenuControlButton({
       className="lg:hidden"
       onClick={clickHandler}
     >
-      <img
-        src={type === "open" ? "/icons/icon-menu.svg" : "/icons/icon-close.svg"}
-        alt="A burguer menu icon"
-      />
+      {type === "close" ? (
+        <MdOutlineClose className="text-[1.5rem]" />
+      ) : (
+        <GiHamburgerMenu className="text-[1.5rem]" />
+      )}
     </button>
   );
 }
